@@ -1,14 +1,15 @@
 import Image from "next/image";
+import Hero from "./component/home/Banner";
 
 export default function Home() {
   return (
    
        <div>
+<Hero></Hero>
 
 
 
 
-        
        </div>
   );
 }
