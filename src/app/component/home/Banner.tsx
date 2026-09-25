@@ -3,7 +3,7 @@ import banner from "@/assets/banner.png";
 
 const Hero = () => {
   return (
-    <section className="bg-[#0d0e10] px-1 pt-8 sm:px-4">
+    <section className=" px-1 pt-8 sm:px-4">
       <div className="flex w-full items-center gap-3 rounded-xl border border-[#25272c] bg-[#1c1e22] p-4 sm:p-4">
 
         {/* Left Side */}
