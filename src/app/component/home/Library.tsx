@@ -18,10 +18,12 @@ const Library = async () => {
 
 
     return (
-        <section className="px-4 py-8 sm:px-5 md:px-6 md:py-10">
+        <section 
+          id="library"
+          className="px-4 py-8 sm:px-5 md:px-6 md:py-10">
 
             <div className="mb-6 md:mb-10">
-                <h1 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
+                <h1 className="text-2xl font-bold display-font-Oswald text-white sm:text-3xl">
                     THE LIBRARY
                 </h1>
 
@@ -29,7 +31,7 @@ const Library = async () => {
                     Twelve lifts covering every major muscle group.
                 </p>
             </div>
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 px-2">
 
 
                 {works.map((work: IWorkout) => <WorkCard key={work.id} work={work}></WorkCard>)}

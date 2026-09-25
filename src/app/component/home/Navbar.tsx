@@ -1,10 +1,22 @@
-import React from "react";
+'use client'
+import React, { useContext } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import logo from "@/assets/logo.png";
 import WorkOutButton from "@/app/buttton/WorkOutButton";
+import { FitLogContext } from "@/app/context/Workout";
+
+
+
+
+
 
 const Navbar = () => {
+
+
+
+    const { saved, setSaved,plan,setPlan } = useContext(FitLogContext);
+  
   return (
     <div className="navbar min-h-[50px] border-b border-gray-800 bg-[#0b0c0f] px-3 sm:px-4 md:px-6 lg:px-8">
 
@@ -57,7 +69,7 @@ const Navbar = () => {
           <span>Plan</span>
 
           <span className="badge h-4 min-h-4 min-w-4 border-none bg-[#ccff00] px-1 text-[8px] text-black sm:h-5 sm:min-h-5 sm:min-w-5 sm:text-[9px]">
-            0
+            {plan.length}
           </span>
         </Link>
 
@@ -70,7 +82,7 @@ const Navbar = () => {
           <span>Saved</span>
 
           <span className="badge h-4 min-h-4 min-w-4 border-gray-600 px-1 text-[8px] text-gray-300 sm:h-5 sm:min-h-5 sm:min-w-5 sm:text-[9px]">
-            0
+            {saved.length}
           </span>
         </Link>
 

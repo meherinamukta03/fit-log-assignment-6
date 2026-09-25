@@ -8,24 +8,27 @@ const Hero = () => {
 
         {/* Left Side */}
         <div className="px-8">
-          <p className="mb-3 text-[9px] font-bold tracking-widest text-lime-400 sm:text-[10px]">
+          <p className="mt-2 text-[9px] font-bold tracking-widest text-lime-400 sm:text-[10px]">
             WORKOUT LIBRARY
           </p>
 
-          <h1 className="text-2xl font-black uppercase leading-tight text-white sm:text-3xl md:text-5xl">
+          <h1 className="text-2xl display-font-Oswald font-black uppercase leading-tight text-white sm:text-3xl md:text-5xl">
             TRAIN WITH INTENT. LOG
             <br />
             EVERY SET.
           </h1>
 
           <p className="mt-3 max-w-[430px] text-xs leading-5 text-gray-400 sm:text-sm sm:leading-6">
-            FitLog is a dark, no-nonsense gym companion: pick a lift, lock it
-            into today plan, and watch the weeks work add up.
+            {`FitLog is a dark, no-nonsense gym companion: pick a lift, lock it
+            into today,s plan, and watch the week's work add up.`}
           </p>
 
-          <button className="mt-4 rounded-md bg-lime-400 px-4 py-2 text-[9px] font-bold uppercase text-black hover:bg-lime-300 sm:text-[10px]">
+          <a
+            href="#library"
+            className="mt-6 inline-block rounded-md bg-lime-400 px-4 py-2 text-[9px] font-bold uppercase text-black hover:bg-lime-300 sm:text-[10px]"
+          >
             Browse Workouts
-          </button>
+          </a>
         </div>
 
         {/* Right Side */}
