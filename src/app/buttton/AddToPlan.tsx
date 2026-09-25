@@ -4,6 +4,7 @@ import React, { useContext } from "react";
 
 import { IWorkout } from "@/app/types/WorkType";
 import { FitLogContext } from "../context/Workout";
+import toast from "react-hot-toast";
 
 interface IAddToPlanProps {
   workout: IWorkout;
@@ -18,10 +19,13 @@ const AddToPlan = ({ workout }: IAddToPlanProps) => {
     );
 
     if (alreadyExists) {
+      toast.error(`${workout.name} already in your plan`)
       return;
     }
 
     setPlan([...plan, workout]);
+
+    toast.success(`${workout.name} added to today,s plan`);
   };
 
   return (

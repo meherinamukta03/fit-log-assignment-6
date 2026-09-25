@@ -1,5 +1,5 @@
 import React from 'react';
-import WorkCard from '../shared/WorkCard';
+import WorkCard from '../card/WorkCard';
 import { IWorkout } from '@/app/types/WorkType';
 
 const getWork = async () => {
