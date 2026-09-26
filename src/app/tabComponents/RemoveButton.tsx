@@ -33,13 +33,13 @@ const RemoveButton = ({ id, type }: IProps) => {
     };
 
     return (
-        <button
-            onClick={handleRemove}
-            className="text-gray-500 hover:text-white"
-            aria-label="Remove workout"
-        >
-            <FaXmark size={12} />
-        </button>
+       <button
+    onClick={handleRemove}
+    className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-[#25272c] text-gray-500 hover:text-white"
+    aria-label="Remove workout"
+>
+    <FaXmark size={12} />
+</button>
     );
 };
 

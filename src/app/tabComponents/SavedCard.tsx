@@ -60,15 +60,13 @@ const SavedCard = ({ work }: IProps) => {
             </div>
 
             {/* Buttons */}
-            <div className="flex items-center gap-2">
-
+            <div className="mt-3 flex w-full items-center justify-end gap-2 border-t border-[#25272c] pt-3">
                 <ViewDetailsButton id={work.id} />
 
                 <RemoveButton
                     id={work.id}
                     type="saved"
                 />
-
             </div>
 
         </div>
