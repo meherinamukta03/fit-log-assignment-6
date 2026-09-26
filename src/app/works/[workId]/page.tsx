@@ -14,7 +14,10 @@ interface IWorkOutDetailsProps {
 
 const getWork = async (workId: string): Promise<IWorkout> => {
     const res = await fetch(
-        `https://api.abcz.workers.dev/api/fitlog/${workId}`
+        `https://api.abcz.workers.dev/api/fitlog/${workId}`,
+        {
+            cache: "no-store",
+        }
     );
 
     if (!res.ok) {
@@ -23,7 +26,6 @@ const getWork = async (workId: string): Promise<IWorkout> => {
 
     return res.json();
 };
-
 const WorkOutDetails = async ({
     params,
 }: IWorkOutDetailsProps) => {
