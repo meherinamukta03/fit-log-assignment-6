@@ -1,29 +1,27 @@
-import React from 'react';
-import WorkCard from '../card/WorkCard';
-import { IWorkout } from '@/app/types/WorkType';
+import React from "react";
+import WorkCard from "../card/WorkCard";
+import { IWorkout } from "@/app/types/WorkType";
 
 const getWork = async () => {
-    const res = await fetch("https://api.abcz.workers.dev/api/fitlog")
-    const data = await res.json()
-    return data
+    const res = await fetch(
+        "https://api.abcz.workers.dev/api/fitlog"
+    );
 
-}
+    const data = await res.json();
 
+    return data;
+};
 
 const Library = async () => {
-
-
-
-    const works = await getWork()
-
+    const works = await getWork();
 
     return (
-        <section 
-          id="library"
-          className="px-4 py-8 sm:px-5 md:px-6 md:py-10">
-
+        <section
+            id="library"
+            className="px-4 py-8 sm:px-5 md:px-6 md:py-10"
+        >
             <div className="mb-6 md:mb-10">
-                <h1 className="text-2xl font-bold display-font-Oswald text-white sm:text-3xl">
+                <h1 className="display-font-Oswald text-2xl font-bold text-white sm:text-3xl">
                     THE LIBRARY
                 </h1>
 
@@ -31,19 +29,15 @@ const Library = async () => {
                     Twelve lifts covering every major muscle group.
                 </p>
             </div>
-                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 px-2">
 
-
-                {works.map((work: IWorkout) => <WorkCard key={work.id} work={work}></WorkCard>)}
-
-
-
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                {works.map((work: IWorkout) => (
+                    <WorkCard
+                        key={work.id}
+                        work={work}
+                    />
+                ))}
             </div>
-            
-
-
-
-
         </section>
     );
 };

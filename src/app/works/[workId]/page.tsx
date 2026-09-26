@@ -1,8 +1,10 @@
+
 import AddToPlan from "@/app/buttton/AddToPlan";
 import SaveForLater from "@/app/buttton/SaveForLatter";
 import { IWorkout } from "@/app/types/WorkType";
 import Image from "next/image";
 import React from "react";
+import { notFound } from "next/navigation";
 
 interface IWorkOutDetailsProps {
     params: Promise<{
@@ -16,7 +18,7 @@ const getWork = async (workId: string): Promise<IWorkout> => {
     );
 
     if (!res.ok) {
-        throw new Error("Workout not found");
+        notFound();
     }
 
     return res.json();
@@ -32,7 +34,6 @@ const WorkOutDetails = async ({
     return (
         <section className="bg-[#0b0c0f] px-4 py-8">
             <div className="mx-auto max-w-5xl">
-
                 <div className="grid gap-6 p-5 md:grid-cols-2">
 
                     {/* Image */}
@@ -144,23 +145,23 @@ const WorkOutDetails = async ({
                                 Instructions
                             </h2>
 
-                            <div className="mt-2 space-y-2">
+                            <ol className="mt-2 list-decimal space-y-2 pl-5">
                                 {work.instructions.map(
                                     (instruction, index) => (
-                                        <p
+                                        <li
                                             key={index}
                                             className="text-xs text-gray-400"
                                         >
-                                            {index + 1}. {instruction}
-                                        </p>
+                                            {instruction}
+                                        </li>
                                     )
                                 )}
-                            </div>
+                            </ol>
 
                         </div>
 
                         {/* Buttons */}
-                        <div className="mt-5 flex gap-3">
+                        <div className="mt-5 flex flex-col gap-3 sm:flex-row">
                             <AddToPlan workout={work} />
                             <SaveForLater workout={work} />
                         </div>

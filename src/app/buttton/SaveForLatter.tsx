@@ -1,6 +1,9 @@
+
 "use client";
-import { FaRegBookmark } from "react-icons/fa";
+
 import React, { useContext } from "react";
+import { FaRegBookmark } from "react-icons/fa";
+import toast from "react-hot-toast";
 
 import { IWorkout } from "@/app/types/WorkType";
 import { FitLogContext } from "../context/Workout";
@@ -18,18 +21,24 @@ const SaveForLater = ({ workout }: ISaveForLaterProps) => {
         );
 
         if (alreadyExists) {
+            toast.error(`${workout.name} already saved`);
             return;
         }
 
         setSaved([...saved, workout]);
+
+        toast.success(`${workout.name} saved for later`);
     };
 
     return (
         <button
+            type="button"
             onClick={handleSave}
-            className=" flex rounded-lg px-4 py-2 text-xs border  border-gray-50 text-gray-300 hover:text-white">
-            <FaRegBookmark />
-              <span> Saved for Later</span>
+            className="flex items-center gap-2 rounded-lg border border-gray-50 px-4 py-2 text-xs text-gray-300 transition hover:text-white"
+        >
+            <FaRegBookmark size={13} />
+
+            <span>Save for later</span>
         </button>
     );
 };

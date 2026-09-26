@@ -1,24 +1,32 @@
-import React from 'react';
-import ExercisesCard from '../component/card/exercisesCard';
-import MyPlanTab from '../buttton/MyPlanTab';
+
+import React from "react";
+import ExercisesCard from "../component/card/exercisesCard";
+import MyPlanTab from "../buttton/MyPlanTab";
 
 const MyPlanPage = () => {
     return (
-        <div className='px-8'>
+        <div className="px-4 sm:px-6 md:px-8">
+
+            {/* Header */}
             <div>
-                <h2 className='text-4xl font-bold display-font-Oswald text-white sm:text-3xl'>My Plan</h2>
-                <p className=' mt-3 max-w-[430px] text-xs leading-5 text-gray-400 sm:text-sm sm:leading-6'>Cap of five lifts for today.Finish them ,then load more.</p>
+                <h2 className="display-font-Oswald text-3xl font-bold text-white sm:text-4xl">
+                    MY PLAN
+                </h2>
 
-
-
+                <p className="mt-3 max-w-[430px] text-xs leading-5 text-gray-400 sm:text-sm sm:leading-6">
+                    Cap of five lifts for today. Finish them, then load more.
+                </p>
             </div>
 
+            {/* Summary */}
+            <ExercisesCard />
 
-<ExercisesCard></ExercisesCard>
+            {/* Today's Plan / Saved */}
+            <MyPlanTab />
 
-<MyPlanTab></MyPlanTab>
         </div>
     );
 };
 
 export default MyPlanPage;
+

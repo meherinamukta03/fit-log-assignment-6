@@ -20,7 +20,7 @@ const WorkOutButton = ({
       className={
         active
           ? "rounded-full bg-[#182600] px-2 py-1.5 text-[10px] text-[#ccff00] sm:px-3 sm:py-2 sm:text-xs md:px-4 md:text-sm"
-          : "rounded-full px-2 py-1.5 text-[10px] text-gray-100 hover:text-gray-500 sm:px-3 sm:py-2 sm:text-xs md:px-4 md:text-sm"
+          : "rounded-full px-2 py-1.5 text-[10px] text-gray-100 hover:text-white sm:px-3 sm:py-2 sm:text-xs md:px-4 md:text-sm"
       }
     >
       {children}

@@ -19,7 +19,7 @@ const WorkCard = ({ work }: iWorkProp) => {
     return (
 
         <Link href={`/works/${work.id}`}>
-            <div className="overflow-hidden rounded-xl border border-[#292c32] bg-[#15171c] sm:rounded-2xl">
+            <div className="overflow-hidden rounded-xl border border-[#292c32] bg-[#15171c] sm:rounded-2xl  hover:border-[#ccff00]">
 
                 {/* Image */}
                 <Image

@@ -1,6 +1,8 @@
+
 "use client";
 
 import { useContext } from "react";
+import toast from "react-hot-toast";
 
 import { FitLogContext } from "@/app/context/Workout";
 import { IWorkout } from "@/app/types/WorkType";
@@ -10,13 +12,14 @@ interface IProps {
 }
 
 const MarkAsDoneButton = ({ workout }: IProps) => {
-
     const { plan, setPlan } = useContext(FitLogContext);
 
     const handleDone = () => {
         setPlan(
             plan.filter((item) => item.id !== workout.id)
         );
+
+        toast.success("Workout marked as done");
     };
 
     return (
@@ -30,3 +33,4 @@ const MarkAsDoneButton = ({ workout }: IProps) => {
 };
 
 export default MarkAsDoneButton;
+
