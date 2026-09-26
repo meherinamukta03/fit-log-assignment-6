@@ -17,7 +17,7 @@ const RemoveButton = ({ id, type }: IProps) => {
         plan,
         setPlan,
         saved,
-        setSaved
+        setSaved,
     } = useContext(FitLogContext);
 
     const handleRemove = () => {
@@ -33,15 +33,14 @@ const RemoveButton = ({ id, type }: IProps) => {
     };
 
     return (
-       <button
-    onClick={handleRemove}
-    className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-[#25272c] text-gray-500 hover:text-white"
-    aria-label="Remove workout"
->
-    <FaXmark size={12} />
-</button>
+        <button
+            onClick={handleRemove}
+            className="flex h-8 w-full shrink-0 items-center justify-center rounded-md border border-[#25272c] text-gray-500 hover:text-white sm:w-8"
+            aria-label="Remove workout"
+        >
+            <FaXmark size={12} />
+        </button>
     );
 };
 
 export default RemoveButton;
-
