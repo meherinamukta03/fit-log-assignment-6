@@ -1,8 +1,8 @@
-
 "use client";
 
 import { useContext } from "react";
 import toast from "react-hot-toast";
+import { FaCheck } from "react-icons/fa6";
 
 import { FitLogContext } from "@/app/context/Workout";
 import { IWorkout } from "@/app/types/WorkType";
@@ -25,12 +25,12 @@ const MarkAsDoneButton = ({ workout }: IProps) => {
     return (
         <button
             onClick={handleDone}
-            className="rounded-full bg-[#ccff00] px-3 py-1.5 text-[9px] font-medium text-black"
+            className="flex items-center gap-1 rounded-full bg-[#ccff00] px-3 py-1.5 text-[9px] font-medium text-black"
         >
-            ✓ Mark as Done
+            <FaCheck size={9} />
+            Mark as Done
         </button>
     );
 };
 
 export default MarkAsDoneButton;
-
