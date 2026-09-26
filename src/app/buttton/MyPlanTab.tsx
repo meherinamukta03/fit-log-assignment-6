@@ -1,11 +1,15 @@
-
 "use client";
 
 import React, { useContext, useState } from "react";
+import Link from "next/link";
+
 import { FitLogContext } from "../context/Workout";
 import { IWorkout } from "../types/WorkType";
-import TabCard from "../component/card/TabCard";
-import Link from "next/link";
+
+
+
+import TodayPlanCard from "../tabComponents/TodayPlanCard";
+import SavedCard from "../tabComponents/SavedCard";
 
 const MyPlanTab = () => {
     const { plan, saved } = useContext(FitLogContext);
@@ -21,11 +25,15 @@ const MyPlanTab = () => {
 
         if (sortBy === "durations") {
             sortedWorks.sort((a, b) => b.duration - a.duration);
-        } else if (sortBy === "calories") {
+        }
+
+        if (sortBy === "calories") {
             sortedWorks.sort(
                 (a, b) => b.caloriesBurned - a.caloriesBurned
             );
-        } else if (sortBy === "rating") {
+        }
+
+        if (sortBy === "rating") {
             sortedWorks.sort((a, b) => b.rating - a.rating);
         }
 
@@ -37,8 +45,9 @@ const MyPlanTab = () => {
 
     return (
         <div>
-            {/* Sort Dropdown */}
-            <div className="flex justify-end mb-6">
+
+            {/* Sort */}
+            <div className="mb-6 flex justify-end">
                 <select
                     value={sortBy}
                     onChange={(e) =>
@@ -57,101 +66,142 @@ const MyPlanTab = () => {
                 </select>
             </div>
 
-            {/* Main Tab Container */}
-            <div className="border border-[#25272c] rounded-xl overflow-hidden">
+
+            {/* Main Container */}
+            <div className="overflow-hidden rounded-xl border border-[#25272c]">
 
                 {/* Tabs */}
-                <div className="flex justify-start border-b border-[#25272c]">
+                <div className="flex border-b border-[#25272c]">
 
                     {/* Today's Plan */}
                     <button
                         onClick={() => setActiveTab("plan")}
-                        className={`py-3 sm:py-4 px-4 sm:px-6 text-sm sm:text-base font-semibold transition ${
+                        className={`px-4 py-3 text-sm font-semibold transition sm:px-6 sm:py-4 ${
                             activeTab === "plan"
-                                ? "text-white border-b-2 border-white"
+                                ? "border-b-2 border-white text-white"
                                 : "text-gray-400 hover:text-white"
                         }`}
                     >
-                        {`Today's Plan`}
+                       {`Today's Plan`}
                     </button>
+
 
                     {/* Saved */}
                     <button
                         onClick={() => setActiveTab("saved")}
-                        className={`py-3 sm:py-4 px-4 sm:px-6 text-sm sm:text-base font-semibold transition ${
+                        className={`px-4 py-3 text-sm font-semibold transition sm:px-6 sm:py-4 ${
                             activeTab === "saved"
-                                ? "text-white border-b-2 border-white"
+                                ? "border-b-2 border-white text-white"
                                 : "text-gray-400 hover:text-white"
                         }`}
                     >
                         Saved
                     </button>
+
                 </div>
 
-                {/* Tab Content */}
-                <div className="p-4 sm:p-6 bg-[#0d0e10]">
 
-                    {/* Today's Plan */}
+                {/* Content */}
+                <div className="bg-[#0d0e10] p-4 sm:p-6">
+
+
+                    {/* ================= TODAY'S PLAN ================= */}
+
                     {activeTab === "plan" && (
-                        <>
+
+                        <div>
+
                             {sortedPlan.length > 0 ? (
-                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+                                <div className="flex flex-col gap-3">
+
                                     {sortedPlan.map((work) => (
-                                        <TabCard
+                                        <TodayPlanCard
                                             key={work.id}
                                             work={work}
                                         />
                                     ))}
+
                                 </div>
+
                             ) : (
-                                <div className="text-center">
-                                    <h2 className="text-center font-semibold text-lg">
+
+                                <div className="py-10 text-center">
+
+                                    <h2 className="text-lg font-semibold text-white">
                                         Nothing here yet
                                     </h2>
 
-                                    <p className="text-gray-400 sm:text-sm">
-                                        Browse the library and add a lift to
-                                        get today moving
+                                    <p className="mt-1 text-sm text-gray-400">
+                                        Browse the library and add a lift
+                                        to get today moving
                                     </p>
-                                    <Link href='/src/app/component/home/Library.tsx'>
-                                   <button className=" text-black bg-[#ccff00] rounded-3xl border-3"> Go to Workouts</button>
+
+                                    <Link href="/">
+                                        <button className="mt-3 rounded-full bg-[#ccff00] px-5 py-2 text-sm font-semibold text-black">
+                                            Go to Workouts
+                                        </button>
                                     </Link>
+
                                 </div>
+
                             )}
-                        </>
+
+                        </div>
+
                     )}
 
-                    {/* Saved */}
+
+                    {/* ================= SAVED ================= */}
+
                     {activeTab === "saved" && (
-                        <>
+
+                        <div>
+
                             {sortedSaved.length > 0 ? (
-                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+                                <div className="flex flex-col gap-3">
+
                                     {sortedSaved.map((work) => (
-                                        <TabCard
+                                        <SavedCard
                                             key={work.id}
                                             work={work}
                                         />
                                     ))}
+
                                 </div>
+
                             ) : (
-                                <div className="text-center">
-                                    <h2 className="text-center font-semibold text-lg">
+
+                                <div className="py-10 text-center">
+
+                                    <h2 className="text-lg font-semibold text-white">
                                         Nothing here yet
                                     </h2>
 
-                                    <p className="text-gray-400 sm:text-sm">
+                                    <p className="mt-1 text-sm text-gray-400">
                                         Browse the library and save a workout
                                         to get started
                                     </p>
-                                    <Link href='/src/app/component/home/Library.tsx'>
-                                   <button className=" text-black font-semibold bg-[#bee523] rounded-4xl border-3 p-2 mt-1"> Go to Workouts</button>
+
+                                    <Link href="/">
+                                        <button className="mt-3 rounded-full bg-[#ccff00] px-5 py-2 text-sm font-semibold text-black">
+                                            Go to Workouts
+                                        </button>
                                     </Link>
+
                                 </div>
+
                             )}
-                        </>
+
+                        </div>
+
                     )}
+
                 </div>
+
             </div>
+
         </div>
     );
 };
