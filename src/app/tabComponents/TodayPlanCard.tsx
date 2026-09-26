@@ -5,7 +5,7 @@ import { FaRegClock, FaFire, FaStar } from "react-icons/fa6";
 
 import { IWorkout } from "@/app/types/WorkType";
 
-;
+
 
 
 import ViewDetailsButton from "./ViewDetailsButton";

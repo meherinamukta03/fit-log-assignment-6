@@ -22,7 +22,7 @@ const ExercisesCard = () => {
     return (
         <div className="mt-4 flex w-full items-stretch rounded-2xl border border-gray-800 bg-[#0f1117] p-4 sm:p-5 text-white">
 
-            {/* Exercises */}
+      
             <div className="flex-1">
                 <p className="text-[10px] sm:text-xs text-gray-400">
                     Exercises
@@ -33,10 +33,10 @@ const ExercisesCard = () => {
                 </p>
             </div>
 
-            {/* Divider */}
+         
             <div className="border-l border-gray-800"></div>
 
-            {/* Minutes */}
+       
             <div className="flex-1 pl-4 sm:pl-6 md:pl-10">
                 <p className="text-[10px] sm:text-xs text-gray-400">
                     Minutes
@@ -47,10 +47,9 @@ const ExercisesCard = () => {
                 </p>
             </div>
 
-            {/* Divider */}
             <div className="border-l border-gray-800"></div>
 
-            {/* Calories */}
+        
             <div className="flex-1 pl-4 sm:pl-6 md:pl-10">
                 <p className="text-[10px] sm:text-xs text-gray-400">
                     Calories
