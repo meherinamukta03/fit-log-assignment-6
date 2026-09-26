@@ -35,7 +35,7 @@ const RemoveButton = ({ id, type }: IProps) => {
     return (
         <button
             onClick={handleRemove}
-            className="flex h-8 w-full shrink-0 items-center justify-center rounded-md border border-[#25272c] text-gray-500 hover:text-white sm:w-8"
+            className="flex h-8 w-full shrink-0 items-center justify-center rounded-md border border-[#25272c] text-white hover:text-gray-100 sm:w-8"
             aria-label="Remove workout"
         >
             <FaXmark size={12} />
