@@ -30,10 +30,9 @@ const WorkCard = ({ work }: iWorkProp) => {
                     className="h-56 w-full object-cover sm:h-56"
                 />
 
-                {/* Content */}
                 <div className="p-4 sm:p-6 md:p-7">
 
-                    {/* Muscle Groups */}
+               
                     <div className="mb-4 flex flex-wrap gap-2">
                         {work.muscleGroups.map((muscle) => (
                             <span
