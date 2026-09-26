@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useContext } from "react";
@@ -25,7 +26,7 @@ const MarkAsDoneButton = ({ workout }: IProps) => {
     return (
         <button
             onClick={handleDone}
-            className="flex items-center gap-1 rounded-full bg-[#ccff00] px-3 py-1.5 text-[9px] font-medium text-black"
+            className="flex w-full items-center justify-center gap-1 rounded-full bg-[#ccff00] px-3 py-1.5 text-[9px] font-medium text-black sm:w-auto"
         >
             <FaCheck size={9} />
             Mark as Done
@@ -34,3 +35,4 @@ const MarkAsDoneButton = ({ workout }: IProps) => {
 };
 
 export default MarkAsDoneButton;
+
